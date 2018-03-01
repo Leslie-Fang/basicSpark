@@ -16,7 +16,7 @@ public class SimpleApp {
    // System.out.println("Lines with a: " + numAs + ", lines with b: " + numBs);
    //
    // spark.stop();
-   String master = "local";
+   String master = "spark://headnode:7077";
    String appName = "SimpleApp";
    SparkConf conf = new SparkConf().setAppName(appName).setMaster(master);
    JavaSparkContext sc = new JavaSparkContext(conf);
@@ -24,7 +24,7 @@ public class SimpleApp {
    List<Integer> data = Arrays.asList(1, 2, 3, 4, 5);
    JavaRDD<Integer> distData = sc.parallelize(data);
    System.out.println(distData.map(a -> a+1).reduce((a, b) -> a + b));
-   JavaRDD<String> distFile = sc.textFile("/home/automation/spark/spark-2.2.1-bin-hadoop2.7/README.md");
+   JavaRDD<String> distFile = sc.textFile("/home/lf/spark/spark-2.2.1-bin-hadoop2.7/README.md");
    System.out.println(distFile.count());
    
  }
