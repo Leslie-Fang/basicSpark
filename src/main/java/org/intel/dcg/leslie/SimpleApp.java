@@ -18,7 +18,9 @@ public class SimpleApp {
    // spark.stop();
    String master = "spark://headnode:7077";
    String appName = "SimpleApp";
-   SparkConf conf = new SparkConf().setAppName(appName).setMaster(master);
+   //SparkConf conf = new SparkConf().setAppName(appName).setMaster(master);
+   
+   SparkConf conf = new SparkConf().setAppName(appName);
    JavaSparkContext sc = new JavaSparkContext(conf);
    
    List<Integer> data = Arrays.asList(1, 2, 3, 4, 5);
